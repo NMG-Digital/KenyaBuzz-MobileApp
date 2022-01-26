@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -26,48 +26,48 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 @font-face {
-    font-family: "regular";
-    src: url(assets/fonts/Poppins-Regular.ttf);
-} 
-@font-face {
-    font-family: "medium";
-    src: url(assets/fonts/Poppins-Medium.ttf);
+  font-family: "regular";
+  src: url(assets/fonts/ParalucentText-Book.ttf);
 }
-  
 @font-face {
-    font-family: "semi-bold";
-    src: url(assets/fonts/Poppins-SemiBold.ttf);
+  font-family: "medium";
+  src: url(assets/fonts/Paralucent-Medium.ttf);
 }
-  
+
 @font-face {
-    font-family: "bold";
-    src: url(assets/fonts//Poppins-Bold.ttf);
+  font-family: "semi-bold";
+  src: url(assets/fonts/Paralucent-DemiBold.ttf);
 }
-  
+
+@font-face {
+  font-family: "bold";
+  src: url(assets/fonts/Paralucent-Bold.ttf);
+}
+
 * {
-    font-family: "regular";
+  font-family: "regular";
 }
 
 ion-label {
-    color: white;
+  color: white;
 }
 
-.header_div{
-    display: flex !important;
-    align-items: center !important;
-    height: 60px;
+.header_div {
+  display: flex !important;
+  align-items: center !important;
+  height: 60px;
 
-    img {
-        width: 140px !important;
-    }
-    .search_btn{
-        position: absolute;
-        right: 0;
-    }
+  img {
+    width: 140px !important;
+  }
+  .search_btn {
+    position: absolute;
+    right: 0;
+  }
 }
 
-.bg_image{
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+.bg_image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
