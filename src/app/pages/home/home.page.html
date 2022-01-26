@@ -3,7 +3,7 @@
         <ion-buttons slot="start">
             <ion-menu-button color="light"></ion-menu-button>
         </ion-buttons>
-        <img src="assets/imgs/logo4.svg">
+        <img src="assets/imgs/KB-white-logo.svg">
         <ion-button class="search_btn" slot="end" fill="clear" size="small">
             <ion-icon slot="icon-only" name="search-outline" color="light"></ion-icon>
         </ion-button>
@@ -11,6 +11,55 @@
 </ion-header>
 
 <ion-content>
+    <div class="main_content_div">
+        <!-- Hero Slider Start -->
+        <ion-slides mode="ios">
+            <ion-slide *ngFor="let item of mainSlider; let i = index">
+              <div class="hero_slides">
+                  <ion-label>{{i+1}}/{{mainSlider?.length}}</ion-label>
+                  <img src={{item}} class="main_content_div__hero_image">
+                  <h3 class="main_content_div__movie_title">Venom: Let There Be Carnage</h3>
+              </div>
+            </ion-slide>
+        </ion-slides>
+        <!-- Hero Slider End -->
+
+        <!-- Now Showing Start -->
+        <ion-label class="head_lbl" (click)="goTovideoList('Top picks for you')">Now Showing <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
+        <ion-slides mode="ios" [options]="slideOpts">
+            <ion-slide *ngFor="let item of images" (click)="goToVideo()">
+                <div class="main_content_div__top-picks-slider">
+                    <div class="main_content_div__top_picks">
+                        <img src={{item.img}}>
+                    </div>
+                    <button class="buy_ticket movies_btn">Buy Ticket</button>
+                    <h5>{{item.name}}</h5>
+                    
+                </div>
+            </ion-slide>
+        </ion-slides>
+        <!-- Now Showing End -->
+
+        <!-- By Category Start -->
+        <ion-label class="head_lbl" (click)="goTovideoList('Top picks for you')">Movies By Category <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
+        
+        <ion-slides mode="ios" [options]="slideOpts2">
+            <ion-slide *ngFor="let item of  (images | slice : 0: 12)" (click)="goToVideo()">
+                <div class="flex_div">
+                    <div class="main_content_div__category_img">
+                        <div class="cat_group bg_image" [style.backgroundImage]="'url('+item.img+')'"></div>
+                    </div>
+                    <ion-label class="name">{{item.name}}</ion-label>
+                </div>
+            </ion-slide>
+        </ion-slides>
+        <!-- By Category End -->
+
+        
+    </div>
+</ion-content>
+
+<!-- <ion-content>
     <div class="main_content_div">
 
         <ion-slides mode="ios">
@@ -121,4 +170,4 @@
         </ion-slides>
 
     </div>
-</ion-content>
+</ion-content> -->
