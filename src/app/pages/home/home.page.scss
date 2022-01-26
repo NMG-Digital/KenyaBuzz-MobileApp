@@ -1,101 +1,188 @@
-.main_content_div{
+.main_content_div {
+  width: 100%;
+  padding: 10px;
+
+  &__hero_image {
     width: 100%;
-    padding: 10px;
+    height: 100%;
+    object-fit: cover;
+  }
 
-    .back_image{
-        height: 200px;
-        width: 100%;
-        border-radius: 5px;
-        position: relative;
-        padding: 5px;
-        ion-label {
-            position: absolute;
-            right: 5px;
-            font-size: 14px;
-        }
+  &__movie_title {
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &__top_picks {
+    border-radius: 10px;
+    height: 150px;
+    overflow: hidden;
+  }
+
+  &__top-picks-slider {
+    height: auto;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .head_lbl{
-        font-family: 'medium';
-        display: block;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        position: relative;
-        ion-icon{
-            position: absolute;
-            right: 0;
-            font-size: 20px;
-            color: #707070;
-        }
+    h5 {
+      color: white;
+      margin: 0;
+      font-size: 14px;
+      transform: translateY(-50%);
+      text-align: center;
     }
-    ion-slide{
-        margin-right: 7px;
-    }
+  }
 
-    .back_image2{
-        height: 140px;
-        width: 100%;
-        border-radius: 5px;
-    }
+  .hero_slides {
+    height: 250px;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
 
-    .back_image3{
-        height: 80px;
-        width: 80px;
-        min-width: 80px;
-        border: 3px solid var(--ion-color-primary);
-        border-radius: 50%;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 20%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
     }
 
-    .back_image4{
-        height: 100px;
-        width: 100%;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    ion-label {
+      position: absolute;
+      right: 5px;
+      font-size: 14px;
+    }
+  }
 
-        .bold_lbl {
-            font-family: 'semi-bold';
-            text-transform: uppercase;
-        }
+  &__category_img {
+    display: grid;
+    place-items: center;
+    height: 80px;
+    width: 80px;
+    min-width: 80px;
+    border-radius: 50%;
+    border: 1px solid var(--ion-color-dark-tint);
+
+    .cat_group {
+      height: 50px;
+      width: 50px;
+      min-width: 50px;
+      // border: 3px solid var(--ion-color-primary);
+      border-radius: 50%;
+    }
+  }
+
+  //   ==========================================
+
+  .head_lbl {
+    font-family: "medium";
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    ion-icon {
+      position: absolute;
+      right: 0;
+      font-size: 20px;
+      color: #707070;
+    }
+  }
+  ion-slide {
+    margin-right: 7px;
+  }
+
+  .back_image2 {
+    height: 150px;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .back_image3 {
+    height: 80px;
+    width: 80px;
+    min-width: 80px;
+    border: 3px solid var(--ion-color-primary);
+    border-radius: 50%;
+  }
+
+  .back_image4 {
+    height: 100px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .bold_lbl {
+      font-family: "semi-bold";
+      text-transform: uppercase;
+    }
+  }
+
+  .flex_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+
+    .name {
+      font-size: 12px;
+      margin-top: 5px;
     }
 
-    .flex_div{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-        height: 100%;
-        padding: 5px;
-
-        .name{
-            font-size: 12px;
-            margin-top: 5px;
-        }
-
-        .live{
-            font-size: 12px;
-            font-family: 'medium';
-            text-align: left;
-        }
-
-        .live2{
-            font-size: 12px;
-            font-family: 'medium';
-            text-align: right;
-        }
-
-        .play_div{
-            display: flex;
-            align-items: center;
-            .play{
-                font-size: 20px;
-                margin-right: 1px;
-            }
-            .name{
-                font-size: 14px;
-                margin-top: 0px;
-            }
-        }
+    .live {
+      font-size: 12px;
+      font-family: "medium";
+      text-align: left;
     }
+
+    .live2 {
+      font-size: 12px;
+      font-family: "medium";
+      text-align: right;
+    }
+
+    .play_div {
+      display: flex;
+      align-items: center;
+      .play {
+        font-size: 20px;
+        margin-right: 1px;
+      }
+      .name {
+        font-size: 14px;
+        margin-top: 0px;
+      }
+    }
+  }
+}
+
+.buy_ticket {
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 30px;
+  transform: translateY(-50%);
+  color: white;
+  margin-bottom: 7px;
+}
+
+.movies_btn {
+  background-color: var(--ion-color-movies);
 }
