@@ -176,8 +176,8 @@
 .card-BG {
   padding: 5px;
   width: 100%;
-  height: 220px;
-  background-color: var(--ion-color-step-100);
+  height: 210px;
+  background-color: var(--ion-color-events-contrast);
   border-radius: 7px;
 
   &__info-wrapper {
@@ -218,7 +218,7 @@
 
   &__event-title {
     display: block;
-    font-size: 15px;
+    font-size: 16px;
     text-align: left;
     color: var(--ion-color-step-900);
   }
@@ -235,6 +235,7 @@
   transform: translateY(-50%);
   color: white;
   margin-bottom: 7px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
 
 .movies_btn {
@@ -243,6 +244,11 @@
 
 .events_btn {
   background-color: var(--ion-color-events);
+}
+
+.events_btn-lg {
+  background-color: var(--ion-color-events);
+  padding: 10px 35px;
 }
 // ===================
 // BUTTON STYLES END
