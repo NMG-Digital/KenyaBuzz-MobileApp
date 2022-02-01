@@ -89,7 +89,8 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'email-login',
     loadChildren: () => import('./pages/email-login/email-login.module').then( m => m.EmailLoginPageModule)
   },

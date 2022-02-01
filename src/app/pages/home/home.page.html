@@ -40,11 +40,11 @@
         </ion-slides>
         <!-- Now Showing End -->
 
-        <!-- By Category Start -->
+        <!-- Movies By Category Start -->
         <ion-label class="head_lbl" (click)="goTovideoList('Top picks for you')">Movies By Category <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
         
         <ion-slides mode="ios" [options]="slideOpts2">
-            <ion-slide *ngFor="let item of  (images | slice : 0: 12)" (click)="goToVideo()">
+            <ion-slide *ngFor="let item of  (images | slice : 0: 12)"(click)="goToVideo()">
                 <div class="flex_div">
                     <div class="main_content_div__category_img">
                         <div class="cat_group bg_image" [style.backgroundImage]="'url('+item.img+')'"></div>
@@ -53,9 +53,29 @@
                 </div>
             </ion-slide>
         </ion-slides>
-        <!-- By Category End -->
+        <!-- Movies By Category End -->
 
+        <!-- Hot Events Start -->
+        <ion-label class="head_lbl" (click)="goTovideoList('Live News')">Hot Events <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
         
+        <ion-slides mode="ios" [options]="slideOpts3">
+            <ion-slide *ngFor="let item of (images | slice : 5: 14)" (click)="goToVideo()">
+                <div class="card-BG">
+                    <div class="back_image4 bg_image" [style.backgroundImage]="'url('+item.img+')'">
+                    </div>
+                    <button class="buy_ticket events_btn">Buy Ticket</button>
+                    <div class="card-BG__info-wrapper">
+                        <ion-label class="card-BG__event_date">January 27, 2022</ion-label>
+                        <div class="card-BG__location-wrapper">
+                            <div class="card-BG__line"></div>
+                            <ion-label class="card-BG__location">Kenya National Theater</ion-label>
+                        </div>
+                        <ion-label class="card-BG__event-title">{{item.name}}</ion-label>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slides>
+        <!-- Hot Events End -->
     </div>
 </ion-content>
 
