@@ -24,9 +24,9 @@
     <feature name="CDVIonicKeyboard">
         <param name="android-package" onload="true" value="io.ionic.keyboard.CDVIonicKeyboard" />
     </feature>
-    <name>Ionic 5 Movies</name>
-    <description>An awesome Ionic/Cordova app by initappz.</description>
-    <author email="support@initappz.com" href="https://initappz.com/">initappz Team</author>
+    <name>KenyaBuzz</name>
+    <description>Find out what's on in Kenya. KenyaBuzz is your ultimate guide to events, movies and things to do in Kenya.</description>
+    <author email="support@kenyabuzz.com" href="https://kenyabuzz.com/">KenyaBuzz Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
