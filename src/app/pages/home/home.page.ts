@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DummyService } from 'src/app/services/dummy.service';
 import { Router, NavigationExtras } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
+import { DummyService } from 'src/app/services/dummy.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,10 @@ import { Router, NavigationExtras } from '@angular/router';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-
+  public dateToday: string = null;
+  public featuredMovies: any;
+  public featuredMoviesLoading: boolean = true;
+  private l_strg: any = null;
   images;
   sports;
   animals;
@@ -32,14 +37,24 @@ export class HomePage implements OnInit {
     'assets/imgs/landscape_imgs/4.jpg',
     'assets/imgs/landscape_imgs/5.png',
   ];
-  constructor(private dummy: DummyService, private router: Router) {
+  
+  constructor(private dataService: DataService,
+              private apiService: ApiService,
+              private dummy: DummyService,
+              private router: Router
+  ) {
+    this.dateToday = this.dataService.dateToday;
+    let l_strg = this.apiService.getEndpoints();
+    this.l_strg = l_strg.local_storage;
+
     this.images = this.dummy.images;
     this.sports = this.dummy.sports;
     this.animals = this.dummy.animal;
     this.genrens = this.dummy.genrens;
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.checkFeaturedMovies();
   }
 
   goToVideo() {
@@ -72,6 +87,85 @@ export class HomePage implements OnInit {
       }
     };
     this.router.navigate(['/category'] , navData);
+  }
+
+  async checkFeaturedMovies(){
+    let featuredMoviesStore = localStorage.getItem(this.l_strg.movies.featured);
+    // console.log('Featured movies in local ?',featuredMoviesStore);
+    if(featuredMoviesStore){
+        let featuredMoviesData = JSON.parse(featuredMoviesStore);
+        // console.log('Parsed Featured Movies >',featuredMoviesData);
+        if (Object.keys(featuredMoviesData.featured_movies).length == 0 || featuredMoviesData.date != this.dateToday){
+          await this.getFeaturedMovies();
+        }else{
+          this.featuredMovies = featuredMoviesData.featured_movies;
+          // console.log('this.featuredMovies before >',this.featuredMovies);
+          
+          this.featuredMovies.forEach((movie:any) => {
+            let genres = [];
+            if(movie.api_data != null){
+              // console.log('Raw Movie >',movie);
+              // console.log('Raw Genres >',movie.api_data.genres);
+              if(Array.isArray(movie.api_data.genres)){
+                for(let i = 0; i < movie.api_data.genres.length; i++){
+                  if(i < 4){
+                    genres.push(movie.api_data.genres[i].name);
+                  }
+                }
+                movie.genres = genres.join(' | ');
+              }else{
+                movie.genres = '-';
+              }
+              movie.movie_poster = (movie.api_data.poster_path != null ? 'https://image.tmdb.org/t/p/w342' + movie.api_data.poster_path : 'https://www.kenyabuzz.com/public' + movie.customposter);
+            }else{
+              movie.movie_poster = 'https://www.kenyabuzz.com/public' + movie.customposter;
+            }
+          });
+          this.featuredMoviesLoading = false;
+          console.log('this.featuredMovies after >',this.featuredMovies);
+        }
+    }else{
+        // console.log('No Featured Movies in local, calling function...');
+        this.getFeaturedMovies();
+    }
+  }
+
+  async getFeaturedMovies(){
+    // fetch the movie details
+    let endpoints: any = this.apiService.getEndpoints();
+    await this.apiService.get(endpoints.movies.featured_movies).subscribe(
+      response => {
+        if ('data' in response) {
+          // console.log('featured movies resp >',response);
+          if(Array.isArray(response.data)){ // featured movies from local storage
+            this.featuredMovies = response.data;
+            this.featuredMovies.forEach(movie => {
+              if(movie.api_data != null){
+                if(Array.isArray(movie.api_data.genres)){
+                  let genres = [];
+                  for(let i = 0; i < movie.api_data.genres.length; i++){
+                    if(i < 4){
+                      genres.push(movie.api_data.genres[i].name);
+                    }
+                  }
+                  movie.genres = genres.join(' | ');
+                }else{
+                  movie.genres = '-';
+                }
+                movie.movie_poster = (movie.api_data.poster_path != null ? 'https://image.tmdb.org/t/p/w342' + movie.api_data.poster_path : 'https://image.tmdb.org/t/p/w342');
+              }else{
+                movie.movie_poster = 'https://www.kenyabuzz.com/public' + movie.customposter;
+                movie.genres = (movie.genre ? movie.genre : '-');
+              }
+            });
+            console.log('this.featuredMovies complete >',this.featuredMovies);
+          }
+        }else{
+          console.log('Featured Movies Error Response >',response);
+        }
+      },
+      error => { console.log('Featured Movies Err >', error); }
+    );
   }
 
 }
