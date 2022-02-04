@@ -8,6 +8,7 @@ import { Router, NavigationExtras } from '@angular/router';
   styleUrls: ['./video.page.scss'],
 })
 export class VideoPage implements OnInit {
+  public movie:any;
 
   slideOpts = {
     slidesPerView: 3,
@@ -16,6 +17,17 @@ export class VideoPage implements OnInit {
 
   constructor(private dummy: DummyService, private router: Router) {
     this.images = this.dummy.images;
+    // if(this.router.getCurrentNavigation().extras.state && "data" in this.router.getCurrentNavigation().extras.state) {
+    //   this.movie = this.router.getCurrentNavigation().extras.state.data;
+    //   console.log(this.movie);
+    // } else {
+    //   this.router.navigate(['/home']);
+    // }
+
+    this.movie = this.router.getCurrentNavigation().extras.state.data;
+      console.log(this.movie);
+    
+    
   }
 
   ngOnInit() {

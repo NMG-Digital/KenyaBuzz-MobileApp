@@ -57,8 +57,8 @@ export class HomePage implements OnInit {
     await this.checkFeaturedMovies();
   }
 
-  goToVideo() {
-    this.router.navigate(['/video']);
+  goToVideo(movie) {
+    this.router.navigate(['/video'], {state:{data:movie}});
   }
 
   goTovideoList(val) {
