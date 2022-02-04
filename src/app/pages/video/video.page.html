@@ -3,7 +3,7 @@
         <ion-buttons slot="start">
             <ion-back-button mode="md" color="light"></ion-back-button>
         </ion-buttons>
-        <ion-title>Video</ion-title>
+        <ion-title>{{movie.movie_name}}</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -20,8 +20,8 @@
             <div class="flex_div">
               <div class="back_image bg_image" [style.backgroundImage]="'url(assets/imgs/news/news1.jpg)'"></div>
               <div class="content_div">
-                <ion-label class="title_lbl">Test Video</ion-label>
-                <ion-label class="light_lbl">English • Comedy</ion-label>
+                <ion-label class="title_lbl">{{movie.movie_name}}</ion-label>
+                <ion-label class="light_lbl">{{movie.genres}}</ion-label>
                 <ion-label class="light_lbl">2010</ion-label>
               </div>
             </div>
@@ -76,5 +76,11 @@
                 </ion-slide>
             </ion-slides>
         </div>
+    </div>
+
+    =================
+
+    <div class="movie_hero">
+      
     </div>
 </ion-content>
