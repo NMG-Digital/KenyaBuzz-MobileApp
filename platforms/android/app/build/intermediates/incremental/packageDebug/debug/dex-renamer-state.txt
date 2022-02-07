@@ -1,0 +1,4 @@
+#Mon Feb 07 23:55:26 EAT 2022
+base.0=C\:\\laragon\\www\\KenyaBuzz-MobileApp\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
