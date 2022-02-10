@@ -80,7 +80,30 @@
 
     =================
 
-    <div class="movie_hero">
-      
+    <div class="movie_info">
+      <div class="movie_info__movie-hero bg_image" [style.backgroundImage]="'url('+movie.movie_poster+')'">
+        <ion-label class="movie_info__title">{{movie.movie_name}}</ion-label>
+        <div class="movie_info__date_time">
+          <ion-label class="movie_info__date">Date Released:</ion-label>
+          <ion-label class="movie_info__time">{{movie.api_data.release_date}}</ion-label>
+        </div>
+      </div>
+
+      <div class="movie_info__about-movie">
+        <div class="ratings-run">
+          <div class="ratings">
+            <div class="imdb-ratings">
+              <img src="../../../assets/icon/imdb-badge.png">
+              <ion-label class="">{{movie.api_data.vote_average}}</ion-label>
+            </div>
+            <div class="rt-ratings"></div>
+          </div>
+          <div class="runtime"></div>
+        </div>
+        <div class="genres"></div>
+        <div class="description"></div>
+      </div>
+
+      <div class="cast"></div>
     </div>
 </ion-content>
