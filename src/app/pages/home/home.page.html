@@ -71,8 +71,8 @@
         <ion-slides mode="ios" [options]="slideOpts3">
             <ion-slide *ngFor="let event of ticketedEvents; index as k;" (click)="goToVideo()">
                 <div class="card-BG">
-                    <div class="back_image4 bg_image">
-                        <img [src]="event.poster" [alt]="event.name">
+                    <div class="back_image4 bg_image card-BG__img-wrapper">
+                        <img class="card-BG__event-poster" [src]="event.poster" [alt]="event.name">
                     </div>
                     <button class="buy_ticket events_btn-lg">Buy Ticket</button>
                     <div class="card-BG__info-wrapper">
