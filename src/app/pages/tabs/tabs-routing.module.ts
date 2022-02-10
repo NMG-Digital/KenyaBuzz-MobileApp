@@ -28,7 +28,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'disney',
+        path: 'KB',
         children: [
           {
             path: '',

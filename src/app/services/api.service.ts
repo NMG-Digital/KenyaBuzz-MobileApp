@@ -33,6 +33,7 @@ export class ApiService {
     return {
       home_slider: 'getHomeSlider',
       movies: {
+        movie_categories: 'getMovieCats',
         coming_soon: 'mvsComingSoon',
         now_showing: 'mvsNowShowing',
         all_movies: 'mvsAll',
@@ -49,6 +50,7 @@ export class ApiService {
         get_vista_seats: 'getVistaSeats/'
       },
       events: {
+        ticketed_events: 'evntsTicketed',
         all_events: 'evntsAll',
         featured_events: 'evntsFeatured',
         home_events: 'homeEvents',
@@ -76,7 +78,8 @@ export class ApiService {
           all: 'locDat_KeNmgkbMvsAll',  // local_storage > we can make these anything unique rather than just "KenyaBuzz"
           now_showing: 'locDat_KeNmgkbMvsNowShowing',
           coming_soon: 'locDat_KeNmgkbMvsSoon',
-          featured: 'locDat_KeNmgkbMvsFtrd'
+          featured: 'locDat_KeNmgkbMvsFtrd',
+          movie_cats: 'locDat_KeNmgMvCts'
         },
         events: {
           featured: 'locDat_KeNmgkbEvntsFtrd',

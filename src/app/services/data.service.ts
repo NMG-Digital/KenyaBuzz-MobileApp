@@ -51,6 +51,47 @@ export class DataService {
     return R;
   }
 
+  readableDate(date: string){
+    if(date){
+      let datesTimeArr = date.split(' ');
+    
+      let datesArr = datesTimeArr[0].split('-');
+      let year = datesArr[0];
+      let month = parseInt(datesArr[1]);
+      let day = parseInt(datesArr[2]);
+      let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      let theDay = (day > 3 ? day+'th' : (day == 1 ? day+'st' : (day == 2 ? day+'nd' : day+'rd')));
+      let theDate = theDay + ' ' + months[month - 1];
+      let fullDate = theDate + ', ' + year;
+
+      if(datesTimeArr.length > 1){
+          let timeArr = datesTimeArr[1].split(':');
+          let hour = parseInt(timeArr[0]);
+          let postfix = (hour > 12 ? 'PM' : 'AM');
+          hour = (hour > 12 ? hour-12 : hour);
+          let minutes = timeArr[1];
+          fullDate = fullDate + ' at ' + hour + ':' + minutes + postfix;
+      }
+      return fullDate;
+    }else{
+      return date
+    }
+  }
+
+  readableTime(time: string){
+    if(time){
+      let timeArr = time.split(':');
+      let hour = parseInt(timeArr[0]);
+      let postfix = (hour > 12 ? 'PM' : 'AM');
+      hour = (hour > 12 ? hour-12 : hour);
+      let minutes = timeArr[1];
+      let fullTime = hour + ':' + minutes + postfix;
+      return fullTime;
+    }else{
+      return time
+    }
+  }
+
   async checkStat() {
     // check if today's data exists in all sections
     let l_strg = this.apiService.getEndpoints();
@@ -143,6 +184,12 @@ export class DataService {
         await this.fetchCinemas();
       }
 
+  }
+
+  returnMovieCategories(): Observable<any>{
+    // return movie categories
+    let endpoint: string = this.apiService.getEndpoints().movies.movie_categories;
+    return this.apiService.get(endpoint);
   }
 
   fetchallMovies():any {
@@ -257,6 +304,12 @@ export class DataService {
     );
     return Promise.resolve(featuredMoviesResp);
     
+  }
+
+  returnTicketedEvents(): Observable<any>{
+    // return movie categories
+    let endpoint: string = this.apiService.getEndpoints().events.ticketed_events;
+    return this.apiService.get(endpoint);
   }
 
   fetchHomeEvents():any {

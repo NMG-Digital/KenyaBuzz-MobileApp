@@ -24,7 +24,7 @@
         </ion-slides>
         <!-- Hero Slider End -->
 
-        <!-- Now Showing Start -->
+        <!-- Now Showing Movies Start -->
         <ion-label class="head_lbl" (click)="goTovideoList('Top picks for you')">Now Showing <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
         <ion-slides mode="ios" [options]="slideOpts">
             <ion-slide *ngFor="let featured of featuredMovies" (click)="goToVideo(featured)">
@@ -38,13 +38,13 @@
                 </div>
             </ion-slide>
         </ion-slides>
-        <!-- Now Showing End -->
+        <!-- Now Showing Movies End -->
 
         <!-- Movies By Category Start -->
         <ion-label class="head_lbl" (click)="goTovideoList('Top picks for you')">Movies By Category <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
         
-        <ion-slides mode="ios" [options]="slideOpts2">
-            <ion-slide *ngFor="let item of  (images | slice : 0: 12)"(click)="goToVideo()">
+        <!-- <ion-slides mode="ios" [options]="slideOpts2">
+            <ion-slide *ngFor="let item of  (images | slice : 0: 12)" (click)="goToVideo()">
                 <div class="flex_div">
                     <div class="main_content_div__category_img">
                         <div class="cat_group bg_image" [style.backgroundImage]="'url('+item.img+')'"></div>
@@ -52,29 +52,40 @@
                     <ion-label class="name">{{item.name}}</ion-label>
                 </div>
             </ion-slide>
+        </ion-slides> -->
+        <ion-slides mode="ios" [options]="slideOpts2" style="background-color: #282828 !important;">
+            <ion-slide *ngFor="let cat of movieCats; index as i;" (click)="goToVideo()">
+                <div class="flex_div" *ngIf="i < 12">
+                    <div class="main_content_div__category_img">
+                        <div class="cat_group bg_image">{{cat.total_movies}}</div>
+                    </div>
+                    <ion-label class="name">{{cat.genre}}</ion-label>
+                </div>
+            </ion-slide>
         </ion-slides>
         <!-- Movies By Category End -->
 
-        <!-- Hot Events Start -->
+        <!-- Ticketed Events Start -->
         <ion-label class="head_lbl" (click)="goTovideoList('Live News')">Hot Events <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
         
         <ion-slides mode="ios" [options]="slideOpts3">
-            <ion-slide *ngFor="let item of (images | slice : 5: 14)" (click)="goToVideo()">
+            <ion-slide *ngFor="let event of ticketedEvents; index as k;" (click)="goToVideo()">
                 <div class="card-BG">
-                    <div class="back_image4 bg_image" [style.backgroundImage]="'url('+item.img+')'">
+                    <div class="back_image4 bg_image">
+                        <img [src]="event.poster" [alt]="event.name">
                     </div>
                     <button class="buy_ticket events_btn-lg">Buy Ticket</button>
                     <div class="card-BG__info-wrapper">
-                        <ion-label class="card-BG__event_date">January 27, 2022</ion-label>
+                        <ion-label class="card-BG__event_date">{{event.start_date}}</ion-label>
                         <div class="card-BG__location-wrapper">
                             <div class="card-BG__line"></div>
-                            <ion-label class="card-BG__location">Kenya National Theater</ion-label>
+                            <ion-label class="card-BG__location">{{event.location_name}}</ion-label>
                         </div>
-                        <ion-label class="card-BG__event-title">{{item.name}}</ion-label>
+                        <ion-label class="card-BG__event-title">{{event.name}}</ion-label>
                     </div>
                 </div>
             </ion-slide>
         </ion-slides>
-        <!-- Hot Events End -->
+        <!-- Ticketed Events End -->
     </div>
 </ion-content>
