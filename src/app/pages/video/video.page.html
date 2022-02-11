@@ -67,14 +67,14 @@
                 </div>
             </div>
 
-            <ion-label class="head_lbl" (click)="goTovideoList('You may also like')">You may also like 
+            <!-- <ion-label class="head_lbl" (click)="goTovideoList('You may also like')">You may also like 
                 <ion-icon name="chevron-forward-outline"></ion-icon>
             </ion-label>
             <ion-slides mode="ios" [options]="slideOpts">
                 <ion-slide *ngFor="let item of images">
                     <div class="back_image2 bg_image" [style.backgroundImage]="'url('+item.img+')'"></div>
                 </ion-slide>
-            </ion-slides>
+            </ion-slides> -->
         </div>
     </div>
 
@@ -128,10 +128,16 @@
       </div>
 <!-- Cast section start -->
       <div class="movie_info__cast">
-        <ion-label class="head_lbl">Cast</ion-label>
+        <ion-label class="movie_info__title">Cast</ion-label>
         <ion-slides mode="ios" [options]="slideOpts">
-          <ion-slide *ngFor="let item of images">
-              <div class="back_image2 bg_image" [style.backgroundImage]="'url('+item.img+')'"></div>
+          <ion-slide *ngFor="let cast of movie.cast_data.cast; index as i;">
+              <div class="cast-content">
+                <div class="cast-imgs" >
+                  <img src="{{cast.profile_path}}" alt="{{cast.name}}"/>
+                </div>
+                <ion-label class="cast-name">{{cast.name}}</ion-label>
+                <ion-label class="cast-xter">{{cast.character}}</ion-label>
+              </div>
           </ion-slide>
         </ion-slides>
       </div>
