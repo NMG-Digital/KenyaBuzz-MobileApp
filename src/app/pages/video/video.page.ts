@@ -25,6 +25,9 @@ export class VideoPage implements OnInit {
     // }
 
     this.movie = this.router.getCurrentNavigation().extras.state.data;
+    this.movie.cast_data.cast.forEach(cast => {
+      cast.profile_path = "https://image.tmdb.org/t/p/w342"+cast.profile_path;
+    });
       console.log(this.movie);
     
     
