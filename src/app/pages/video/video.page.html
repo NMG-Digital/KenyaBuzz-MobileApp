@@ -78,8 +78,7 @@
         </div>
     </div>
 
-    =================
-
+<!-- Movie info -->
     <div class="movie_info">
       <div class="movie_info__movie-hero bg_image" [style.backgroundImage]="'url('+movie.movie_poster+')'">
         <ion-label class="movie_info__title">{{movie.movie_name}}</ion-label>
@@ -90,20 +89,51 @@
       </div>
 
       <div class="movie_info__about-movie">
-        <div class="ratings-run">
+        <div class="movie_info__ratings-run">
           <div class="ratings">
-            <div class="imdb-ratings">
+            <!-- ImDb -->
+            <div class="movie_info__movie-ratings">
               <img src="../../../assets/icon/imdb-badge.png">
               <ion-label class="">{{movie.api_data.vote_average}}</ion-label>
+              <span class="material-icons-outlined">
+                star
+              </span>
             </div>
-            <div class="rt-ratings"></div>
+            <!-- Rotten Tomato -->
+            <div class="movie_info__movie-ratings">
+              <img src="../../../assets/icon/rotten-tomatoes.png">
+              <ion-label class="">{{movie.rotten_tomatoes}}</ion-label>
+            </div>
           </div>
-          <div class="runtime"></div>
+          <div class="runtime">
+            <span class="material-icons-outlined">
+              schedule
+            </span>
+            <ion-label class="">{{movie.api_data.runtime}} Mins</ion-label> 
+          </div>
         </div>
-        <div class="genres"></div>
-        <div class="description"></div>
+        <div class="movie_info__genres">
+          <ion-label class="">{{movie.genres}}</ion-label> 
+        </div>
+        <div class="movie_info__description">
+          <ion-label class="movie_info__title">Description</ion-label>
+          <ion-label class="movie_info__synopsis">{{movie.synopsis}}</ion-label>
+        </div>
+        <div class="movie_info__CTAs">
+          <button class="buy_ticket movies_btn">Buy Ticket</button>
+          <span class="material-icons-outlined">
+            share
+          </span>
+        </div>
       </div>
-
-      <div class="cast"></div>
+<!-- Cast section start -->
+      <div class="movie_info__cast">
+        <ion-label class="head_lbl">Cast</ion-label>
+        <ion-slides mode="ios" [options]="slideOpts">
+          <ion-slide *ngFor="let item of images">
+              <div class="back_image2 bg_image" [style.backgroundImage]="'url('+item.img+')'"></div>
+          </ion-slide>
+        </ion-slides>
+      </div>
     </div>
 </ion-content>
