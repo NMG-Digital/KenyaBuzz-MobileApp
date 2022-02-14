@@ -1,0 +1,86 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button mode="md" color="light"></ion-back-button>
+        </ion-buttons>
+
+        <ng-container *ngIf="eventLoaded">
+          <ion-title>{{theEvent.name}}</ion-title>
+        </ng-container>
+        <ng-container *ngIf="!eventLoaded">
+          <ion-title>Loading...</ion-title>
+        </ng-container>
+        
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ng-container *ngIf="eventLoaded">
+    <!-- Movie info -->
+    <div class="movie_info">
+      <div class="movie_info__movie-hero bg_image" [style.backgroundImage]="'url('+theEvent.poster+')'">
+        <ion-label class="movie_info__title">{{theEvent.name}}</ion-label>
+        <div class="movie_info__date_time">
+          <ion-label class="movie_info__date">Date: {{theEvent.start_date}}</ion-label>
+          <ion-label class="movie_info__time">{{theEvent.location_name}}</ion-label>
+        </div>
+      </div>
+
+      <div class="movie_info__about-movie">
+        <div class="movie_info__ratings-run">
+          <div class="ratings">
+            <!-- ImDb -->
+            <div class="movie_info__movie-ratings">
+              <img src="../../../assets/icon/imdb-badge.png">
+              <ion-label class="">{{'xxxx'}}</ion-label>
+              <span class="material-icons-outlined">
+                star
+              </span>
+            </div>
+            <!-- Rotten Tomato -->
+            <div class="movie_info__movie-ratings">
+              <img src="../../../assets/icon/rotten-tomatoes.png">
+              <ion-label class="">{{'xxxx'}}</ion-label>
+            </div>
+          </div>
+          <div class="runtime">
+            <span class="material-icons-outlined">
+              schedule
+            </span>
+            <ion-label class="">{{'xxxx'}}</ion-label> 
+          </div>
+        </div>
+        <div class="movie_info__genres">
+          <ion-label class="">{{'xxxx'}}</ion-label> 
+        </div>
+        <div class="movie_info__description">
+          <ion-label class="movie_info__title">Description</ion-label>
+          <ion-label class="movie_info__synopsis" [innerHtml]="theEvent.description"></ion-label>
+        </div>
+        <div class="movie_info__CTAs">
+          <button class="buy_ticket movies_btn">Buy Ticket</button>
+          <span class="material-icons-outlined">
+            share
+          </span>
+        </div>
+      </div>
+      <!-- Cast section start -->
+      <div class="movie_info__cast">
+        <ion-label class="movie_info__title">Cast</ion-label>
+        <ion-slides mode="ios" [options]="slideOpts">
+          <ion-slide>
+              <div class="cast-content">
+                <div class="cast-imgs" >
+                  <img src="" alt=""/>
+                </div>
+                <ion-label class="cast-name">{{'xxxx'}}</ion-label>
+                <ion-label class="cast-xter">{{'xxxx'}}</ion-label>
+              </div>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+  </ng-container>
+
+</ion-content>

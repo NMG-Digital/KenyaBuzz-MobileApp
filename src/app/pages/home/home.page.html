@@ -27,7 +27,7 @@
         <!-- Now Showing Movies Start -->
         <ion-label class="head_lbl" (click)="goTovideoList('Top picks for you')">Now Showing <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
         <ion-slides mode="ios" [options]="slideOpts">
-            <ion-slide *ngFor="let featured of featuredMovies" (click)="goToVideo(featured)">
+            <ion-slide *ngFor="let featured of featuredMovies" (click)="goToMovie(featured)">
                 <div class="main_content_div__top-picks-slider">
                     <div class="main_content_div__top_picks">
                         <img src={{featured.movie_poster}}>
@@ -69,7 +69,7 @@
         <ion-label class="head_lbl" (click)="goTovideoList('Live News')">Hot Events <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
         
         <ion-slides mode="ios" [options]="slideOpts3">
-            <ion-slide *ngFor="let event of ticketedEvents; index as k;" (click)="goToVideo()">
+            <ion-slide *ngFor="let event of ticketedEvents; index as k;" (click)="goToEvent(event)">
                 <div class="card-BG">
                     <div class="back_image4 bg_image card-BG__img-wrapper">
                         <img class="card-BG__event-poster" [src]="event.poster" [alt]="event.name">

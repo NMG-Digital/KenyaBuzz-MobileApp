@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { ViewMoviePage } from './pages/view-movie/view-movie.page';
+import { ViewEventPage } from './pages/view-event/view-event.page';
+
 const routes: Routes = [
   {
     path: '',
@@ -9,6 +12,20 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
+  },
+  {
+    path: 'view-movie',
+    children: [
+      { path: ':slug', component: ViewMoviePage },
+      { path: ':slug/buy', component: ViewMoviePage},
+    ]
+  },
+  {
+    path: 'view-event',
+    children: [
+      { path: ':slug', component: ViewEventPage },
+      { path: ':slug/ticket', component: ViewEventPage},
+    ]
   },
   {
     path: 'tv',
