@@ -8,77 +8,7 @@
 </ion-header>
 
 <ion-content>
-    <div class="main_content_div">
-
-        <div class="video_div">
-            <video width="100%" height="240" controls poster="assets/imgs/news/news1.jpg">
-                <source src="assets/imgs/news/video.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="cont_div">
-            <div class="flex_div">
-              <div class="back_image bg_image" [style.backgroundImage]="'url(assets/imgs/news/news1.jpg)'"></div>
-              <div class="content_div">
-                <ion-label class="title_lbl">{{movie.movie_name}}</ion-label>
-                <ion-label class="light_lbl">{{movie.genres}}</ion-label>
-                <ion-label class="light_lbl">2010</ion-label>
-              </div>
-            </div>
-
-            <ion-label class="detail_lbl">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-            </ion-label>
-            <ion-label class="see_more">See More</ion-label>
-
-            <ion-label class="gray_lbl">Lorem Ipsum is simply dummy text of the printing and typesetting</ion-label>
-
-            <ion-grid fixed>
-              <ion-row>
-                <ion-col size="4">
-                  <ion-button expand="block" size="small">
-                    <ion-icon slot="start" name="arrow-down-sharp"></ion-icon>
-                    Download
-                  </ion-button>
-                </ion-col>
-                <ion-col size="4">
-                  <ion-button expand="block" size="small">
-                    <ion-icon slot="start" name="add-sharp"></ion-icon>
-                    Watchlist
-                  </ion-button>
-                </ion-col>
-                <ion-col size="4">
-                  <ion-button expand="block" size="small">
-                    <ion-icon slot="start" name="arrow-redo-sharp"></ion-icon>
-                    Share
-                  </ion-button>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-
-            <ion-label class="head_lbl">Trailers</ion-label>
-
-            <div class="flex_div2">
-                <div class="back_image4 bg_image" [style.backgroundImage]="'url(assets/imgs/news/news3.jpg)'"></div>
-                <div class="play_div">
-                    <ion-icon name="caret-forward-outline" class="play"></ion-icon>
-                    <ion-label class="name">Watch Trailer</ion-label>
-                </div>
-            </div>
-
-            <!-- <ion-label class="head_lbl" (click)="goTovideoList('You may also like')">You may also like 
-                <ion-icon name="chevron-forward-outline"></ion-icon>
-            </ion-label>
-            <ion-slides mode="ios" [options]="slideOpts">
-                <ion-slide *ngFor="let item of images">
-                    <div class="back_image2 bg_image" [style.backgroundImage]="'url('+item.img+')'"></div>
-                </ion-slide>
-            </ion-slides> -->
-        </div>
-    </div>
-
-<!-- Movie info -->
+<!-- Movie info start-->
     <div class="movie_info">
       <div class="movie_info__movie-hero bg_image" [style.backgroundImage]="'url('+movie.movie_poster+')'">
         <ion-label class="movie_info__title">{{movie.movie_name}}</ion-label>
@@ -86,6 +16,20 @@
           <ion-label class="movie_info__date">Date Released:</ion-label>
           <ion-label class="movie_info__time">{{movie.api_data.release_date}}</ion-label>
         </div>
+        <a href="#" data-fancybox="true">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 484.6 471.9" style="enable-background:new 0 0 484.6 471.9;" xml:space="preserve">
+            <g>
+              <path d="M312.3,224.9L312.3,224.9l-102.5-66c-3.9-2.5-8.9-2.8-13.1-0.6c-4.1,2.2-6.8,6.4-7,11.1V301c0.2,4.7,2.8,8.9,7,11.1
+                c4.1,2.2,9.1,1.9,13.1-0.6L312.3,246h0c3.3-2.5,5.3-6.4,5.3-10.5C317.6,231.3,315.7,227.4,312.3,224.9z"/>
+              <path d="M405.4,72.9C362.1,29.6,303.5,5.3,242.3,5.3v0c-61.2,0-119.8,24.3-163.1,67.5C36,116.1,11.7,174.8,11.7,236
+                c0,61.2,24.3,119.8,67.5,163.1c43.2,43.2,101.9,67.5,163.1,67.5c61.2,0,119.8-24.3,163.1-67.5c43.2-43.2,67.5-101.9,67.5-163.1
+                C472.9,174.8,448.6,116.1,405.4,72.9z M375.7,369.4c-35.4,35.4-83.4,55.3-133.4,55.3c-50,0-98-19.9-133.4-55.3
+                C73.5,334,53.6,286,53.6,236c0-50,19.9-98,55.3-133.4c35.4-35.4,83.4-55.3,133.4-55.3c50,0,98,19.9,133.4,55.3
+                C411.1,137.9,431,185.9,431,236C431,286,411.1,334,375.7,369.4z"/>
+            </g>
+          </svg>
+        </a>
       </div>
 
       <div class="movie_info__about-movie">
