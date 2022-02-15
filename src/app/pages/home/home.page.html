@@ -30,7 +30,7 @@
         <div class="main_content_div__padding">
             <ion-label class="head_lbl" (click)="goTovideoList('Top picks for you')">Now Showing <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
             <ion-slides mode="ios" [options]="slideOpts">
-                <ion-slide *ngFor="let featured of featuredMovies" (click)="goToVideo(featured)">
+                <ion-slide *ngFor="let featured of featuredMovies" (click)="goToMovie(featured)">
                     <div class="main_content_div__top-picks-slider">
                         <div class="main_content_div__top_picks">
                             <img src={{featured.movie_poster}}>
