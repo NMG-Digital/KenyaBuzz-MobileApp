@@ -296,11 +296,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "goToVideo",
-        value: function goToVideo(movie) {
-          this.router.navigate(['/video'], {
+        key: "goToMovie",
+        value: function goToMovie(movie) {
+          this.router.navigate(['/view-movie/' + movie.urlify], {
             state: {
               data: movie
+            }
+          });
+        }
+      }, {
+        key: "goToEvent",
+        value: function goToEvent(evnt) {
+          this.router.navigate(['/view-event/' + evnt.slug], {
+            state: {
+              data: evnt
             }
           });
         }
@@ -941,17 +950,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               while (1) {
                 switch (_context7.prev = _context7.next) {
                   case 0:
-                    // check if today's data exists in all sections
-                    l_strg = this.apiService.getEndpoints(); // check featured movies
-
-                    feturedMvsStore = localStorage.getItem(l_strg.local_storage.movies.featured);
+                    /* check local storage first or default to api */
+                    movieCatsStore = localStorage.getItem(this.l_strg.movies.movie_cats);
 
                     if (!feturedMvsStore) {
                       _context7.next = 9;
                       break;
                     }
 
-                    featuredMoviesData = JSON.parse(feturedMvsStore);
+                    _context4.prev = 2;
+                    catsData = JSON.parse(movieCatsStore);
 
                     if (!(Object.keys(featuredMoviesData.featured_movies).length == 0 || featuredMoviesData.date != this.dateToday)) {
                       _context7.next = 7;
@@ -1440,7 +1448,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               },
               error => { console.log('Coming Soon Err >', error); }
             );
-            
+
           }, 900);
           */
         }
@@ -1453,30 +1461,40 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           dialogConfig.disableClose = true;
                let payload: any = {cinema:cinema,show:show,day:day,movie:movie};
           dialogConfig.data = payload;
-          
+
           this.dialog.open(BuyComponent, dialogConfig);
                var x = Array.from(document.getElementsByClassName("cdk-overlay-container") as HTMLCollectionOf<HTMLElement>);
           x[0].style.marginTop = "3%";
-          
+
           this.searchSource.next(payload);
           */
         }
       }]);
 
-      return DataService;
+      return HomePage;
     }();
 
-    DataService.ctorParameters = function () {
+    HomePage.ctorParameters = function () {
       return [{
-        type: _api_service__WEBPACK_IMPORTED_MODULE_3__["ApiService"]
+        type: src_app_services_data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"]
       }, {
-        type: _angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]
+        type: src_app_services_api_service__WEBPACK_IMPORTED_MODULE_5__["ApiService"]
+      }, {
+        type: src_app_services_dummy_service__WEBPACK_IMPORTED_MODULE_4__["DummyService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }];
     };
 
-    DataService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-      providedIn: 'root'
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_api_service__WEBPACK_IMPORTED_MODULE_3__["ApiService"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]])], DataService);
+    HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-home',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./home.page.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/home.page.html"))["default"],
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./home.page.scss */
+      "./src/app/pages/home/home.page.scss"))["default"]]
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"], src_app_services_api_service__WEBPACK_IMPORTED_MODULE_5__["ApiService"], src_app_services_dummy_service__WEBPACK_IMPORTED_MODULE_4__["DummyService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], HomePage);
     /***/
   }
 }]);

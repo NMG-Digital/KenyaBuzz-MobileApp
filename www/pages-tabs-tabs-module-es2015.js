@@ -41,7 +41,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | home-home-module */[__webpack_require__.e("default~disney-disney-module~home-home-module~news-news-module~pages-category-category-module~pages-~8172a6cc"), __webpack_require__.e("home-home-module")]).then(__webpack_require__.bind(null, /*! ../home/home.module */ "./src/app/pages/home/home.module.ts")).then(m => m.HomePageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() | home-home-module */ "home-home-module").then(__webpack_require__.bind(null, /*! ../home/home.module */ "./src/app/pages/home/home.module.ts")).then(m => m.HomePageModule)
                     }
                 ]
             },
@@ -50,7 +50,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | tv-tv-module */[__webpack_require__.e("default~disney-disney-module~home-home-module~news-news-module~pages-category-category-module~pages-~8172a6cc"), __webpack_require__.e("tv-tv-module")]).then(__webpack_require__.bind(null, /*! ../tv/tv.module */ "./src/app/pages/tv/tv.module.ts")).then(m => m.TvPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() | tv-tv-module */ "tv-tv-module").then(__webpack_require__.bind(null, /*! ../tv/tv.module */ "./src/app/pages/tv/tv.module.ts")).then(m => m.TvPageModule)
                     }
                 ]
             },
@@ -59,7 +59,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | disney-disney-module */[__webpack_require__.e("default~disney-disney-module~home-home-module~news-news-module~pages-category-category-module~pages-~8172a6cc"), __webpack_require__.e("disney-disney-module")]).then(__webpack_require__.bind(null, /*! ../disney/disney.module */ "./src/app/pages/disney/disney.module.ts")).then(m => m.DisneyPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() | disney-disney-module */ "disney-disney-module").then(__webpack_require__.bind(null, /*! ../disney/disney.module */ "./src/app/pages/disney/disney.module.ts")).then(m => m.DisneyPageModule)
                     }
                 ]
             },
@@ -68,7 +68,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | sports-sports-module */[__webpack_require__.e("default~disney-disney-module~home-home-module~news-news-module~pages-category-category-module~pages-~8172a6cc"), __webpack_require__.e("sports-sports-module")]).then(__webpack_require__.bind(null, /*! ../sports/sports.module */ "./src/app/pages/sports/sports.module.ts")).then(m => m.SportsPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() | sports-sports-module */ "sports-sports-module").then(__webpack_require__.bind(null, /*! ../sports/sports.module */ "./src/app/pages/sports/sports.module.ts")).then(m => m.SportsPageModule)
                     }
                 ]
             },
@@ -77,7 +77,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | news-news-module */[__webpack_require__.e("default~disney-disney-module~home-home-module~news-news-module~pages-category-category-module~pages-~8172a6cc"), __webpack_require__.e("news-news-module")]).then(__webpack_require__.bind(null, /*! ../news/news.module */ "./src/app/pages/news/news.module.ts")).then(m => m.NewsPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() | news-news-module */ "news-news-module").then(__webpack_require__.bind(null, /*! ../news/news.module */ "./src/app/pages/news/news.module.ts")).then(m => m.NewsPageModule)
                     }
                 ]
             },

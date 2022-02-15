@@ -171,8 +171,11 @@ let HomePage = class HomePage {
             yield this.getTicketedEvents();
         });
     }
-    goToVideo(movie) {
-        this.router.navigate(['/video'], { state: { data: movie } });
+    goToMovie(movie) {
+        this.router.navigate(['/view-movie/' + movie.urlify], { state: { data: movie } });
+    }
+    goToEvent(evnt) {
+        this.router.navigate(['/view-event/' + evnt.slug], { state: { data: evnt } });
     }
     goTovideoList(val) {
         const navData = {
@@ -857,16 +860,16 @@ let DataService = class DataService {
                 // show a dialog with the results
                 const dialogConfig = new MatDialogConfig();
                 this.dialog.open(SearchComponent, dialogConfig);
-    
+
                 var x = Array.from(document.getElementsByClassName("cdk-overlay-container") as HTMLCollectionOf<HTMLElement>);
                 x[0].style.marginTop = "3%";
-    
+
                 this.searchSource.next(response);
               }
             },
             error => { console.log('Coming Soon Err >', error); }
           );
-          
+
         }, 900);
         */
     }
@@ -875,15 +878,15 @@ let DataService = class DataService {
         // show a dialog with the results
         let dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;
-    
+
         let payload: any = {cinema:cinema,show:show,day:day,movie:movie};
         dialogConfig.data = payload;
-        
+
         this.dialog.open(BuyComponent, dialogConfig);
-    
+
         var x = Array.from(document.getElementsByClassName("cdk-overlay-container") as HTMLCollectionOf<HTMLElement>);
         x[0].style.marginTop = "3%";
-        
+
         this.searchSource.next(payload);
         */
     }

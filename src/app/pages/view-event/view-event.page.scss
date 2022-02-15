@@ -1,0 +1,338 @@
+.main_content_div {
+  width: 100%;
+
+  ion-label {
+    display: block;
+  }
+
+  .video_div {
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .cont_div {
+    padding: 10px;
+  }
+
+  .flex_div {
+    display: flex;
+    .back_image {
+      height: 70px;
+      width: 60px;
+      border-radius: 5px;
+      min-width: 60px;
+    }
+    .content_div {
+      padding-left: 10px;
+
+      .title_lbl {
+        font-family: "medium";
+        margin-bottom: 5px;
+      }
+      .light_lbl {
+        color: gray;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  .detail_lbl {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+  .see_more {
+    text-align: right;
+    font-size: 15px;
+    color: gray;
+  }
+  .gray_lbl {
+    color: gray;
+    font-size: 13px;
+  }
+
+  ion-button {
+    --background: #202020;
+    --border-radius: 3px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  .head_lbl {
+    font-family: "medium";
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative;
+
+    ion-icon {
+      position: absolute;
+      right: 0;
+      font-size: 20px;
+      color: #707070;
+    }
+  }
+
+  .flex_div2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+
+    .back_image4 {
+      height: 100px;
+      width: 165px;
+      border-radius: 5px;
+    }
+
+    .name {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .bold_lbl {
+      font-family: "medium";
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-transform: uppercase;
+    }
+
+    .play_div {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      .play {
+        font-size: 20px;
+        margin-right: 10px;
+      }
+      .name {
+        font-size: 14px;
+        margin-top: 0px;
+      }
+    }
+  }
+
+  ion-slide {
+    margin-right: 7px;
+  }
+
+  .back_image2 {
+    height: 140px;
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+
+.movie_info {
+  width: 100%;
+
+  &__movie-hero {
+    padding: 50px 10px;
+    width: 100%;
+    height: 350px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.6) 100%,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0.9) 0%
+      );
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  &__date,
+  &__time {
+    display: block;
+    font-weight: 300;
+    font-size: 12px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__about-movie {
+    width: 100%;
+    transform: translateY(-25px);
+    border-radius: 25px 25px 0 0;
+    background-color: var(--ion-color-step-100);
+    padding: 30px 10px;
+
+    .ratings-run {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__ratings-run {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .ratings {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+
+    .runtime {
+      background-color: var(--ion-color-step-100);
+      border-radius: 30px;
+      padding: 5px 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 5px;
+
+      span.material-icons-outlined {
+        font-size: 14px;
+        color: var(--ion-color-step-450);
+      }
+
+      ion-label {
+        font-size: 12px;
+        color: var(--ion-color-step-450);
+      }
+    }
+  }
+
+  &__movie-ratings {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    ion-label {
+      font-size: 13px;
+      font-weight: bold;
+      vertical-align: bottom;
+      margin: 3px 0 0 5px;
+    }
+
+    span.material-icons-outlined {
+      font-size: 14px;
+    }
+  }
+
+  &__genres {
+    margin-top: 10px;
+    font-size: 13px;
+  }
+
+  &__description {
+    margin-top: 30px;
+
+    ion-label.movie_info__title {
+      margin-bottom: 10px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    ion-label.movie_info__synopsis {
+      font-size: 14px;
+      color: var(--ion-color-step-550);
+    }
+  }
+
+  &__CTAs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+    gap: 10px;
+
+    button {
+      transform: translateY(0);
+      margin-bottom: 0;
+    }
+
+    span.material-icons-outlined {
+      padding: 5px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+      color: var(--ion-color-step-550);
+      background-color: var(--ion-color-step-150);
+      border: 1px solid var(--ion-color-step-250);
+      width: 33px;
+      height: 33px;
+      border-radius: 50%;
+      font-size: 16px;
+      display: grid;
+      place-items: center;
+    }
+  }
+
+  &__cast {
+    padding: 0 10px 30px 10px;
+
+    ion-label.movie_info__title {
+      margin-bottom: 10px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    ion-slide {
+      margin-right: 7px;
+    }
+
+    .cast-content {
+      width: 100%;
+      max-width: 100%;
+
+      ion-label {
+        display: block;
+      }
+
+      .cast-name {
+        font-size: 13px;
+        font-weight: bold;
+        color: var(--ion-color-step-600);
+        margin: 10px 0 5px 0;
+      }
+
+      .cast-xter {
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--ion-color-step-500);
+      }
+    }
+
+    .cast-imgs {
+      height: 150px;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

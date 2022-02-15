@@ -63,8 +63,12 @@ export class HomePage implements OnInit {
     await this.getTicketedEvents();
   }
 
-  goToVideo(movie) {
-    this.router.navigate(['/video'], {state:{data:movie}});
+  goToMovie(movie) {
+    this.router.navigate(['/view-movie/'+movie.urlify], {state:{data:movie}});
+  }
+
+  goToEvent(evnt) {
+    this.router.navigate(['/view-event/'+evnt.slug], {state:{data:evnt}});
   }
 
   goTovideoList(val) {

@@ -11,8 +11,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { ViewMoviePage } from './pages/view-movie/view-movie.page';
+import { ViewEventPage } from './pages/view-event/view-event.page';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    ViewMoviePage,
+    ViewEventPage
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,
