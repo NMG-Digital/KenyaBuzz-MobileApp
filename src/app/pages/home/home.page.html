@@ -13,56 +13,115 @@
 <ion-content>
     <div class="main_content_div">
         <!-- Hero Slider Start -->
-        <ion-slides mode="ios">
-            <ion-slide *ngFor="let item of mainSlider; let i = index">
-              <div class="hero_slides">
-                  <ion-label>{{i+1}}/{{mainSlider?.length}}</ion-label>
-                  <img src={{item}} class="main_content_div__hero_image">
-                  <h3 class="main_content_div__movie_title">Venom: Let There Be Carnage</h3>
-              </div>
-            </ion-slide>
-        </ion-slides>
+        <div class="main_content_div__padding">
+            <ion-slides mode="ios">
+                <ion-slide *ngFor="let item of mainSlider; let i = index">
+                  <div class="hero_slides">
+                      <ion-label>{{i+1}}/{{mainSlider?.length}}</ion-label>
+                      <img src={{item}} class="main_content_div__hero_image">
+                      <h3 class="main_content_div__movie_title">Venom: Let There Be Carnage</h3>
+                  </div>
+                </ion-slide>
+            </ion-slides>
+        </div>
         <!-- Hero Slider End -->
 
         <!-- Now Showing Movies Start -->
-        <ion-label class="head_lbl" (click)="goTovideoList('Top picks for you')">Now Showing <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
-        <ion-slides mode="ios" [options]="slideOpts">
-            <ion-slide *ngFor="let featured of featuredMovies" (click)="goToVideo(featured)">
-                <div class="main_content_div__top-picks-slider">
-                    <div class="main_content_div__top_picks">
-                        <img src={{featured.movie_poster}}>
+        <div class="main_content_div__padding">
+            <ion-label class="head_lbl" (click)="goTovideoList('Top picks for you')">Now Showing <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
+            <ion-slides mode="ios" [options]="slideOpts">
+                <ion-slide *ngFor="let featured of featuredMovies" (click)="goToVideo(featured)">
+                    <div class="main_content_div__top-picks-slider">
+                        <div class="main_content_div__top_picks">
+                            <img src={{featured.movie_poster}}>
+                        </div>
+                        <button class="buy_ticket movies_btn">Buy Ticket</button>
+                        <h5>{{featured.movie_name}}</h5>
+            
                     </div>
-                    <button class="buy_ticket movies_btn">Buy Ticket</button>
-                    <h5>{{featured.movie_name}}</h5>
-                    
-                </div>
-            </ion-slide>
-        </ion-slides>
+                </ion-slide>
+            </ion-slides>
+        </div>
         <!-- Now Showing Movies End -->
 
         <!-- Movies By Category Start -->
-        <ion-label class="head_lbl" (click)="goTovideoList('Top picks for you')">Movies By Category <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
-        
-        <!-- <ion-slides mode="ios" [options]="slideOpts2">
-            <ion-slide *ngFor="let item of  (images | slice : 0: 12)" (click)="goToVideo()">
-                <div class="flex_div">
-                    <div class="main_content_div__category_img">
-                        <div class="cat_group bg_image" [style.backgroundImage]="'url('+item.img+')'"></div>
+        <div class="catSection">
+            <ion-label class="head_lbl center-text cat-title">Movies By Category</ion-label>
+            <div class="catSection__cat-group">
+                <!-- Cat 1 - Hot Movies -->
+                <div class="catSection__cat-single">
+                    <div class="catSection__cat-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 484.6 471.9" style="enable-background:new 0 0 484.6 471.9;" xml:space="preserve">
+                            <path d="M174,165L174,165L174,165L174,165z M366.5,161.4c-1.3-1.3-2.8-2.4-4.4-3.4c-4.6-2.7-10.1-3.4-15.3-1.9
+                                c-5.1,1.5-9.4,5.1-11.8,9.8c-6.7,13.1-15.9,24.8-27,34.4c1.7-9.6,2.6-19.4,2.6-29.2c0-29.8-7.8-59.1-22.8-84.8
+                                c-15-25.8-36.5-47.1-62.3-61.9c-5.8-3.3-12.9-3.4-18.7-0.2c-5.9,3.2-9.7,9.1-10.1,15.8c-1.1,18.3-5.9,36.3-14.1,52.7
+                                c-8.2,16.4-19.7,31-33.7,42.9l-4.5,3.6c-14.7,9.9-27.6,22-38.4,36c-22.5,28.3-35.5,62.9-37.4,99c-1.9,36.1,7.5,71.8,26.9,102.3
+                                c19.4,30.5,47.8,54.2,81.2,67.8c6,2.4,12.7,1.7,18.1-1.9c5.3-3.6,8.6-9.6,8.5-16.1c0-2.1-0.3-4.1-1-6c-4.3-16.3-5.6-33.2-3.7-49.9
+                                c18.3,34.5,47.7,61.9,83.4,77.7c4.4,2,9.3,2.2,13.8,0.7c37.8-12.2,70.3-37,92.1-70.2c21.8-33.2,31.5-72.9,27.6-112.4
+                                C411.7,226.8,394.4,189.8,366.5,161.4L366.5,161.4z M291,409.6c-34.1-17.3-59.3-48.2-69.2-85.2c-1.5-6.1-2.7-12.4-3.5-18.6
+                                c-0.6-4-2.3-7.7-5.1-10.6c-2.8-2.9-6.4-4.9-10.3-5.7c-1.2-0.2-2.5-0.4-3.7-0.4c-3.4,0-6.7,0.9-9.7,2.6c-2.9,1.7-5.4,4.1-7.1,7.1
+                                c-16,27.7-24.1,59.3-23.3,91.3c-28.5-22.2-47-54.8-51.2-90.7s6-71.9,28.5-100.2c8.5-11,18.7-20.5,30.2-28.2c0.5-0.3,1-0.7,1.4-1.1
+                                c0,0,5.7-4.7,5.9-4.9c27.6-23.3,47.2-54.6,56.1-89.6c21.1,19.5,35.1,45.4,40,73.7c4.8,28.3,0.2,57.4-13.2,82.8
+                                c-2.4,4.5-2.8,9.8-1.3,14.7c1.5,4.9,4.9,9,9.5,11.4c4.5,2.4,9.8,2.9,14.7,1.3c29.6-9.3,55.7-27.4,74.7-52
+                                c23.1,34.2,29.4,77.1,17.1,116.4C359.2,363.2,329.5,394.8,291,409.6L291,409.6z"/>
+                        </svg>
                     </div>
-                    <ion-label class="name">{{item.name}}</ion-label>
+                    <ion-label>Hot Movies</ion-label>
                 </div>
-            </ion-slide>
-        </ion-slides> -->
-        <ion-slides mode="ios" [options]="slideOpts2" style="background-color: #282828 !important;">
-            <ion-slide *ngFor="let cat of movieCats; index as i;" (click)="goToVideo()">
-                <div class="flex_div" *ngIf="i < 12">
-                    <div class="main_content_div__category_img">
-                        <div class="cat_group bg_image">{{cat.total_movies}}</div>
+                <!-- Cat 1 End - Hot Movies -->
+
+                <!-- Cat 2 - Bollywood -->
+                <div class="catSection__cat-single">
+                    <div class="catSection__cat-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 484.6 471.9" style="enable-background:new 0 0 484.6 471.9;" xml:space="preserve">
+                            <path d="M16.1,203.8H46c-9.1-12.6-14.4-28.1-14.4-44.8c0-42.4,34.5-77,77-77c18.9,0,36.1,6.8,49.5,18.1
+                                c13.6-43.3,53.9-73.2,99.7-73.2c57.6,0,104.5,46.9,104.5,104.5c0,28-11.1,53.5-29.1,72.3h29.7c8.9,0,16.1,7.2,16.1,16.1v26.4
+                                l81.4-40.3c10.6-6.2,24.2,1.3,24.2,13.9v209c-0.2,11.7-12.3,19.8-23.2,14.4L379,402.5v26.4c0,8.9-7.2,16.1-16.1,16.1H16.1
+                                C7.2,445,0,437.7,0,428.9v-209C0,211,7.2,203.8,16.1,203.8L16.1,203.8z M215.9,260.1c17.1,0,17.1,26.1,0,26.1h-13.5
+                                c-17.1,0-17.1-26.1,0-26.1H215.9z M54.6,286.2c-17.1,0-17.2-26.1,0-26.1h104.5c17.1,0,17.1,26.1,0,26.1H54.6z M175.9,196.3
+                                c-1.4,2.6-3,5.1-4.8,7.5h11.3C180.1,201.4,177.9,198.9,175.9,196.3L175.9,196.3z M257.8,203.8c40,0,72.3-32.3,72.3-72.3
+                                c0-40-32.3-72.3-72.3-72.3c-40,0-72.3,32.3-72.3,72.3C185.5,171.5,217.8,203.8,257.8,203.8z M108.5,203.8c24.8,0,44.8-20,44.8-44.8
+                                s-20-44.8-44.8-44.8c-24.8,0-44.8,20-44.8,44.8S83.7,203.8,108.5,203.8z M379,282.1v84.6l73.5,36.3V245.7L379,282.1L379,282.1z
+                                M346.8,236H32.2v176.8h314.6V236z"/>
+                        </svg>
                     </div>
-                    <ion-label class="name">{{cat.genre}}</ion-label>
+                    <ion-label>Bollywood</ion-label>
                 </div>
-            </ion-slide>
-        </ion-slides>
+                <!-- Cat 2 End - Bollywood -->
+
+                <!-- Cat 3 - Cinemas -->
+                <div class="catSection__cat-single">
+                    <div class="catSection__cat-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 484.6 471.9" style="enable-background:new 0 0 484.6 471.9;" xml:space="preserve">
+                            <g>
+                                <path d="M65.2,384.3c-31.3,0-56.7,25.5-56.7,56.7c0,8.6,7,15.7,15.7,15.7s15.7-7,15.7-15.7c0-14,11.4-25.4,25.4-25.4
+                                    c14,0,25.4,11.4,25.4,25.4c0,8.6,7,15.7,15.6,15.7c8.6,0,15.7-7,15.7-15.7C121.9,409.8,96.5,384.3,65.2,384.3z"/>
+                                <path d="M183.3,384.3c-31.3,0-56.7,25.5-56.7,56.7c0,8.6,7,15.7,15.7,15.7c8.6,0,15.7-7,15.7-15.7c0-14,11.4-25.4,25.4-25.4
+                                    c14,0,25.4,11.4,25.4,25.4c0,8.6,7,15.7,15.7,15.7s15.6-7,15.6-15.7C240,409.8,214.5,384.3,183.3,384.3z"/>
+                                <path d="M301.9,384.3c-31.3,0-56.7,25.5-56.7,56.7c0,8.6,7,15.7,15.7,15.7c8.6,0,15.7-7,15.7-15.7c0-14,11.4-25.4,25.4-25.4
+                                    c14,0,25.4,11.4,25.4,25.4c0,8.6,7,15.7,15.7,15.7s15.6-7,15.6-15.7C358.6,409.8,333.1,384.3,301.9,384.3z"/>
+                                <path d="M419.4,384.3c-31.3,0-56.7,25.5-56.7,56.7c0,8.6,7,15.7,15.7,15.7s15.6-7,15.6-15.7c0-14,11.4-25.4,25.4-25.4
+                                    c14,0,25.4,11.4,25.4,25.4c0,8.6,7,15.7,15.6,15.7s15.7-7,15.7-15.7C476.2,409.8,450.7,384.3,419.4,384.3z"/>
+                                <path d="M149.6,351.2c0,8.6,7,15.7,15.7,15.7c8.6,0,15.7-7,15.7-15.8c-0.3-15.1-6.3-29.3-16.8-40c-10.7-10.7-24.8-16.7-39.9-16.7
+                                    c-31.3,0-56.7,25.5-56.7,56.7c0,8.6,7,15.7,15.6,15.7s15.7-7,15.7-15.7c0-14,11.4-25.4,25.4-25.4
+                                    C138.2,325.8,149.6,337.2,149.6,351.2z"/>
+                                <path d="M267.7,351.2c0,8.6,7,15.7,15.6,15.7c8.6,0,15.7-7,15.7-15.7c0-31.3-25.4-56.7-56.7-56.7c-31.3,0-56.7,25.5-56.7,56.7
+                                    c0,8.6,7,15.7,15.7,15.7c8.6,0,15.6-7,15.6-15.7c0-14,11.4-25.4,25.4-25.4C256.3,325.8,267.7,337.2,267.7,351.2z"/>
+                                <path d="M386.3,351.2c0,8.6,7,15.7,15.6,15.7s15.7-7,15.7-15.7c0-31.3-25.4-56.7-56.7-56.7c-31.3,0-56.7,25.5-56.7,56.7
+                                    c0,8.6,7,15.7,15.7,15.7c8.6,0,15.6-7,15.6-15.7c0-14,11.4-25.4,25.4-25.4C374.9,325.8,386.3,337.2,386.3,351.2z"/>
+                                <path d="M24.1,255.5H460c8.6,0,15.6-7,15.6-15.7V31c0.3-4-1-7.9-3.8-10.9c-2.9-3.2-7-5-11.3-5H24.1c-8.6,0-15.7,7-15.7,15.6v209
+                                    C8.4,248.4,15.5,255.5,24.1,255.5z M39.8,46.5h404.6v177.7H39.8V46.5z"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <ion-label>Cinemas</ion-label>
+                </div>
+                <!-- Cat 3 End - Cinemas -->
+            </div>
+        </div>
         <!-- Movies By Category End -->
 
         <!-- Ticketed Events Start -->
