@@ -135,8 +135,8 @@
 .card-BG {
   padding: 5px;
   width: 100%;
-  height: 210px;
-  background-color: var(--ion-color-events-contrast);
+  // height: 220px;
+  background-color: var(--ion-color-step-100);
   border-radius: 7px;
 
   &__info-wrapper {
@@ -183,14 +183,16 @@
   &__location {
     font-size: 12px;
     font-weight: bold;
+    text-align: left;
     color: var(--ion-color-events);
   }
 
   &__event-title {
     display: block;
-    font-size: 16px;
+    font-size: 14px;
     text-align: left;
     color: var(--ion-color-step-900);
+    margin-bottom: 10px;
   }
 }
 
@@ -213,21 +215,26 @@
 
     ion-label {
       font-size: 13px;
-      font-weight: bold;
+      // font-weight: bold;
+      color: var(--ion-color-step-700);
+      margin-bottom: 10px;
     }
   }
 
   &__cat-icon {
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    padding: 12px;
     color: var(--ion-color-step-550);
-    background-color: var(--ion-color-step-150);
+    // background-color: var(--ion-color-step-150);
     border: 1px solid var(--ion-color-step-250);
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     display: grid;
     place-items: center;
+
+    img {
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    }
 
     svg {
       width: 20px;
